@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balasan Untukmu ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .jawaban-card {
+            max-width: 500px;
+            padding: 40px 30px;
+            gap: 20px;
+        }
+        .pesan-jawaban {
+            color: #333;
+            font-size: 15px;
+            line-height: 1.7;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.65);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .pesan-jawaban p {
+            margin-bottom: 12px;
+        }
+        .pesan-jawaban p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card jawaban-card">
+            <h1 class="question" style="font-size: 24px;">Ini balasanku buat kamu... 💌</h1>
+            
+            <div class="image-container">
+                <!-- Gambar beruang memberi bunga atau pelukan -->
+                <img src="https://media.tenor.com/Y366Ue5xOqUAAAAi/bear-blow-a-kiss.gif" alt="Kiss Bear" width="130" style="border-radius: 15px; margin-bottom: 10px;">
+            </div>
+
+            <div class="pesan-jawaban">
+                <p>Hahaha iyaa Pinnn, makasih banyak ya udah mau jujur. Seneng banget dengernya kalau kamu juga nyaman pas sama aku. 🥰</p>
+                <p>Soal sikap kamu mah tenang aja santai, aku malah suka kok dan siap ngadepinnya. Nggak usah ada yang diubah dari diri kamu.</p>
+                <p>Kalau kamu ngerasa buru-buru, gapapa banget! Aku juga setuju kita <b>let it flow</b> aja, jalanin pelan-pelan sambil makin kenal satu sama lain. Nggak ada yang maksa harus jadian sekarang juga kok.</p>
+                <p>Nah buat LDR, aku sadar emang butuh perjuangan ekstra, tapi aku berani dan beneran mau ngusahain itu asalkan bareng kamu. Kita lanjut kenal lebih dalem lagi pelan-pelan ya? ❤️</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Script untuk efek konfeti saat halaman dibuka -->
+    <script>
+        window.onload = function() {
+            const colors = ['#ff0844', '#ffb199', '#ff9a9e', '#fecfef', '#ffffff', '#ffd700'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(confetti);
+            }
+        }
+    </script>
+</body>
+</html>

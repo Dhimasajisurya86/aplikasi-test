@@ -60,6 +60,19 @@ btnNo.addEventListener('mouseover', dodgeCursor);
 btnNo.addEventListener('touchstart', (e) => {
     e.preventDefault();
     dodgeCursor();
+const btnMaybe = document.getElementById('btn-maybe');
+const maybeMessage = document.getElementById('maybe-message');
+
+// Logika ketika tombol "Mengenal lebih jauh" diklik
+btnMaybe.addEventListener('click', () => {
+    mainContainer.style.display = 'none';
+    maybeMessage.style.display = 'block';
+    
+    // Kirim notifikasi ke ntfy
+    fetch('https://ntfy.sh/rahasia-dhimas-gebetan', {
+        method: "POST",
+        body: "😊 CIEEEE! Gebetanmu klik tombol 'Kenal lebih jauh dulu ya'!"
+    });
 });
 
 // Logika ketika tombol "Ya" diklik
