@@ -30,7 +30,11 @@ function dodgeCursor() {
         // Kunci tinggi container agar layout tidak melompat (mengecil)
         btnNo.parentElement.style.minHeight = btnNo.parentElement.offsetHeight + 'px';
         
-        // Tetapkan posisi awal secara absolut
+        // Pindahkan elemen langsung ke dalam body 
+        // Ini SANGAT PENTING karena .card memiliki efek backdrop-filter yang menjebak posisi fixed
+        document.body.appendChild(btnNo);
+        
+        // Tetapkan posisi awal secara absolut sesuai kordinat layar
         btnNo.style.position = 'fixed';
         btnNo.style.left = rect.left + 'px';
         btnNo.style.top = rect.top + 'px';
@@ -41,7 +45,7 @@ function dodgeCursor() {
         setTimeout(() => {
             btnNo.style.left = randomX + 'px';
             btnNo.style.top = randomY + 'px';
-        }, 10);
+        }, 50);
     } else {
         // Jika sudah pernah dipindah, langsung lari ke posisi baru
         btnNo.style.left = randomX + 'px';
