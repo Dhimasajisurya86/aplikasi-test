@@ -3,6 +3,9 @@ const btnYes = document.getElementById('btn-yes');
 const mainContainer = document.getElementById('main-container');
 const successMessage = document.getElementById('success-message');
 
+// Status untuk melacak apakah tombol sudah pernah dipindah
+let isMoved = false;
+
 // Fungsi untuk membuat tombol menghindar
 function dodgeCursor() {
     // Dapatkan batas aman agar tombol tidak keluar layar
@@ -14,18 +17,38 @@ function dodgeCursor() {
     const randomX = Math.max(safeMargin, Math.floor(Math.random() * maxX));
     const randomY = Math.max(safeMargin, Math.floor(Math.random() * maxY));
     
-    // Ubah posisi tombol menjadi fixed (lepas dari layout awal) lalu pindahkan
-    btnNo.style.position = 'fixed';
-    btnNo.style.left = randomX + 'px';
-    btnNo.style.top = randomY + 'px';
+    if (!isMoved) {
+        // Ambil posisi elemen saat ini sebelum diubah ke fixed
+        const rect = btnNo.getBoundingClientRect();
+        
+        // Kunci tinggi container agar layout tidak melompat (mengecil)
+        btnNo.parentElement.style.minHeight = btnNo.parentElement.offsetHeight + 'px';
+        
+        // Tetapkan posisi awal secara absolut
+        btnNo.style.position = 'fixed';
+        btnNo.style.left = rect.left + 'px';
+        btnNo.style.top = rect.top + 'px';
+        
+        isMoved = true;
+        
+        // Beri sedikit jeda agar browser merender posisi awal sebelum memulai animasi lari
+        setTimeout(() => {
+            btnNo.style.left = randomX + 'px';
+            btnNo.style.top = randomY + 'px';
+        }, 10);
+    } else {
+        // Jika sudah pernah dipindah, langsung lari ke posisi baru
+        btnNo.style.left = randomX + 'px';
+        btnNo.style.top = randomY + 'px';
+    }
 }
 
 // Event listener saat kursor mouse mendekat
 btnNo.addEventListener('mouseover', dodgeCursor);
 
-// Event listener untuk layar sentuh (mobile) agar tetap susah ditekan
+// Event listener untuk layar sentuh (mobile)
 btnNo.addEventListener('touchstart', (e) => {
-    e.preventDefault(); // Mencegah klik langsung
+    e.preventDefault();
     dodgeCursor();
 });
 
