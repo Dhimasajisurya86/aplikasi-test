@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    overflow: hidden; /* Mencegah scrollbar muncul saat tombol lari */
+}
+
+.container {
+    perspective: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(255, 154, 158, 0.37);
+    max-width: 90%;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.question {
+    color: #4a4a4a;
+    font-size: 26px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+    line-height: 1.3;
+}
+
+.image-container img {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    position: relative; /* Untuk membantu penempatan awal tombol */
+}
+
+.btn {
+    padding: 16px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-out; /* Transisi halus saat tombol lari */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.btn-yes {
+    background: linear-gradient(45deg, #ff0844 0%, #ffb199 100%);
+    color: white;
+}
+
+.btn-yes:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 8, 68, 0.4);
+}
+
+.btn-no {
+    background: #ffffff;
+    color: #ff0844;
+    border: 2px solid #ff0844;
+}
+
+/* Success Message Styles */
+.success-message {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 8px 32px 0 rgba(255, 154, 158, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-width: 90%;
+}
+
+.success-message h1 {
+    color: #ff0844;
+    font-size: 32px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+}
+
+.success-message img {
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Confetti Styles */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    animation: fall linear infinite;
+    z-index: 0;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
