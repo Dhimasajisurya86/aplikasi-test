@@ -1,0 +1,29 @@
+/* Tambahan untuk form kejujuran */
+.subtitle {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.pesan-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid rgba(255, 154, 158, 0.5);
+    border-radius: 15px;
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+    background: rgba(255, 255, 255, 0.7);
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.pesan-input:focus {
+    border-color: #ff0844;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(255, 8, 68, 0.2);
+}
+
+.form-card {
+    gap: 15px;
+}
