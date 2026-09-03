@@ -9,13 +9,19 @@ let isMoved = false;
 // Fungsi untuk membuat tombol menghindar
 function dodgeCursor() {
     // Dapatkan batas aman agar tombol tidak keluar layar
-    const safeMargin = 20;
-    const maxX = window.innerWidth - btnNo.offsetWidth - safeMargin;
-    const maxY = window.innerHeight - btnNo.offsetHeight - safeMargin;
+    const safeMargin = 30;
+    // Gunakan clientWidth/Height untuk akurasi ukuran viewport browser
+    const windowWidth = document.documentElement.clientWidth;
+    const windowHeight = document.documentElement.clientHeight;
     
-    // Hasilkan posisi X dan Y acak
-    const randomX = Math.max(safeMargin, Math.floor(Math.random() * maxX));
-    const randomY = Math.max(safeMargin, Math.floor(Math.random() * maxY));
+    // Titik maksimum agar tombol tidak menyentuh ujung layar
+    const maxX = windowWidth - btnNo.offsetWidth - safeMargin;
+    const maxY = windowHeight - btnNo.offsetHeight - safeMargin;
+    
+    // Hasilkan posisi X dan Y acak yang PASTI berada di dalam layar
+    // Menggunakan rentang [safeMargin, maxX]
+    const randomX = Math.floor(Math.random() * (maxX - safeMargin + 1)) + safeMargin;
+    const randomY = Math.floor(Math.random() * (maxY - safeMargin + 1)) + safeMargin;
     
     if (!isMoved) {
         // Ambil posisi elemen saat ini sebelum diubah ke fixed
