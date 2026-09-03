@@ -69,15 +69,15 @@ btnYes.addEventListener('click', () => {
     
     createConfetti();
     
-    // OPSI WA: Mengirim pesan WhatsApp otomatis ke nomormu
-    // Ganti "628xxxxxxxxxx" dengan nomor WhatsApp kamu (gunakan 62 pengganti 0)
-    const nomorWA = "628xxxxxxxxxx"; 
-    const pesan = "Iya, aku nyaman sama kamu ❤️";
-    
-    // Beri jeda 3 detik agar dia bisa melihat animasi konfeti dulu, lalu buka WA
-    setTimeout(() => {
-        window.location.href = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
-    }, 3000);
+    // OPSI LOG SERVER ASLI (VERCEL SERVERLESS FUNCTION)
+    // Website akan memanggil API server buatan kita sendiri
+    fetch('/api/log', {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json'
+        }
+    }).then(response => console.log("Log berhasil masuk ke server Vercel"))
+      .catch(error => console.log("Log gagal dikirim"));
 });
 
 // Fungsi untuk membuat efek konfeti jatuh
