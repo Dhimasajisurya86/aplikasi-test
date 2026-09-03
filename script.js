@@ -69,14 +69,12 @@ btnYes.addEventListener('click', () => {
     
     createConfetti();
     
-    // OPSI LOG SERVER ASLI (VERCEL SERVERLESS FUNCTION)
-    // Website akan memanggil API server buatan kita sendiri
-    fetch('/api/log', {
+    // OPSI LOG PALING MUDAH & INSTAN (Via Ntfy)
+    // Laporan akan langsung dikirim ke channel ntfy-mu tanpa perlu repot cek server
+    fetch('https://ntfy.sh/rahasia-dhimas-gebetan', {
         method: "POST",
-        headers: { 
-            'Content-Type': 'application/json'
-        }
-    }).then(response => console.log("Log berhasil masuk ke server Vercel"))
+        body: "❤️ CIEEEE! Gebetanmu baru saja klik tombol 'Ya aku mau!' 🎉"
+    }).then(response => console.log("Log berhasil dikirim"))
       .catch(error => console.log("Log gagal dikirim"));
 });
 

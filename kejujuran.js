@@ -15,17 +15,10 @@ btnKirim.addEventListener('click', () => {
     btnKirim.textContent = "Mengirim...";
     btnKirim.disabled = true;
 
-    // Kirim pesan ke server lokal (Vercel) yang sudah kita buat
-    fetch('/api/log', {
+    // Kirim pesan ke channel ntfy (langsung masuk ke layarmu tanpa server ribet)
+    fetch('https://ntfy.sh/rahasia-dhimas-gebetan', {
         method: "POST",
-        headers: { 
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            tipe: "KEJUJURAN",
-            pesan: isiPesan,
-            waktu: new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" })
-        })
+        body: "💌 PESAN KEJUJURAN: " + isiPesan
     }).then(response => {
         // Sembunyikan form dan tampilkan pesan sukses
         formCard.style.display = 'none';
