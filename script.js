@@ -68,6 +68,16 @@ btnYes.addEventListener('click', () => {
     successMessage.style.display = 'block';
     
     createConfetti();
+    
+    // OPSI WA: Mengirim pesan WhatsApp otomatis ke nomormu
+    // Ganti "628xxxxxxxxxx" dengan nomor WhatsApp kamu (gunakan 62 pengganti 0)
+    const nomorWA = "628xxxxxxxxxx"; 
+    const pesan = "Iya, aku nyaman sama kamu ❤️";
+    
+    // Beri jeda 3 detik agar dia bisa melihat animasi konfeti dulu, lalu buka WA
+    setTimeout(() => {
+        window.location.href = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+    }, 3000);
 });
 
 // Fungsi untuk membuat efek konfeti jatuh
